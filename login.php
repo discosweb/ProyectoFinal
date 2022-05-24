@@ -8,7 +8,7 @@
   3. Saldate Luna Luis Omar
   4. Ortega Hernandez Ariana Jatziri
 
-@Description Archivo donde se valida el ingreso del usuario adminsitrador.
+@Description: Archivo donde se valida el ingreso del usuario adminsitrador.
 */
 ?>
 

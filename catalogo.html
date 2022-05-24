@@ -58,13 +58,29 @@
 
 <body>
 
+  <!-- ========== HEADER ========== -->
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav.navbar ">
+         <!--MENÚ-->
+         <div class="collapse navbar-collapse" id="navbarCollapse">
+           <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+                 <a class="nav-link" href="creditos.php">Créditos</a>
+             </li>
+           <ul>
+         </div>
+         <!--FIN MENÚ-->
+     </nav>
+   </header><br><br><br><br><br>
+   <!-- ========== END HEADER ========== -->
+
   <?php
 
-      <!--HACER LA CONEXIÓN AQUÍ MISMO-->
-      //Archivo para la conexión a la BD
-      require_once "../connection.php";
+      //conectar a la base de datos
+      $con=pg_pconnect("host=localhost port=5432 dbname=BDRecords user=postgres password=BDRecords")
+      or die('La conexión falló');
 
-      $consulta = "SELECT * FROM BDRecord GROUP BY id";
+      $consulta = "SELECT * FROM discos GROUP BY id";
       $resultado = pg_query($con, $consulta);
   ?>
 
@@ -77,13 +93,13 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre del disco</th>
-                    <th>Productores</th>
-                    <th>Disqueras</th>
-                    <th>Canción</th>
-                    <th>Compositores</th>
-                    <th>Grupos</th>
-                    <th>Artista</th>
+                    <th>Titulo</th>
+                    <th>Grupo</th>
+                    <th>Año</th>
+                    <th>Genero</th>
+                    <th>Disquera</th>
+                    <th>Productor</th>
+                    <th>Costo</th>
                 </tr>
             </thead>
             <tbody>
@@ -93,17 +109,17 @@
 
                 <tr>
                     <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['nombreDiso']; ?></td>
-                    <td><?php echo $row['productores']; ?></td>
-                    <td><?php echo $row['disqueras']; ?></td>
-                    <td><?php echo $row['cancion']; ?></td>
-                    <td><?php echo $row['compositores']; ?></td>
-                    <td><?php echo $row['grupos']; ?></td>
-                    <td><?php echo $row['artista']; ?></td>
+                    <td><?php echo $row['titulo']; ?></td>
+                    <td><?php echo $row['grupo']; ?></td>
+                    <td><?php echo $row['anio']; ?></td>
+                    <td><?php echo $row['genero']; ?></td>
+                    <td><?php echo $row['disquera']; ?></td>
+                    <td><?php echo $row['productor']; ?></td>
+                    <td><?php echo $row['costo']; ?></td>
                     <td><a class="btn btn-secondary btn-sm" href="form_discos.php?id=
                       <?php echo $row ['id'];?>">Agregar</a></td>                               <!--FALTA CREAR-->
                     <td><a class="btn btn-success btn-sm" href="edita_discos.php?id=
-                      <?php echo $row ['id'];?>">Editar</a></td>                                <!--FALTA CREAR-->
+                      <?php echo $row ['id'];?>">Editar</a></td>                                
                     <td><a class="btn btn-danger btn-sm" href="baja_discos.php?id=
                       <?php echo $row ['id'];?>">Eliminar</a></td>                              <!--FALTA CREAR-->
 

@@ -1,0 +1,239 @@
+<?php
+/*
+@name: artistas.php
+
+@author: Cano Jiménez Janeth
+
+@Description: Tabla con los artistas con enlace para dar de alta, editar
+              o eliminar otros elementos.
+
+*/
+?>
+
+<!doctype html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Artistas</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/carousel.css" rel="stylesheet">
+
+
+  <style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+  </style>
+</head>
+
+<?php
+  //INICIAR SESIÓN O REANUDAR EXISTENTE
+  session_start();
+
+  if (isset($_SESSION['usuario'])){
+    $usuario = $_SESSION['usuario'];
+  } else {
+    header('location: login.php');
+    die() ;
+  }
+?>
+
+<body>
+   <!-- ========== HEADER ========== -->
+   <header>
+   <nav class="navbar navbar-expand-lg  navbar-dark fixed-top nav.navbar ">
+
+
+          <!--MENÚ-->
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <!--ARTISTAS-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="catalogo_artistas.php">Artistas</a>
+              </li>
+
+              <!--GRUPOS-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="../grupos_CRUD/grupos.php">Grupos</a>
+              </li>
+
+              <!--DISQUERAS-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="../disqueras_CRUD/disqueras.php">Disqueras</a>
+              </li>
+
+              <!--PRODUCTORES-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="../productores_CRUD/productores.php">Productores</a>
+              </li>
+
+              <!--COMPOSITORES-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="../compositores_CRUD/compositores.php">Compositores</a>
+              </li>
+
+              <!--CANCIONES-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="../canciones_CRUD/canciones.php">Canciones</a>
+              </li>
+
+              <!--DISCOS-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="../discos_CRUD/discos.php">Discos</a>
+              </li>
+
+              <!--CRÉDITOS-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="../creditos.php">Créditos</a>
+              </li>
+
+              <!--SALIR-->
+              <li class="nav-item active">
+                  <a class="nav-link" href="login.php"><i class="fas fa-sign-out-alt"></i> Salir</a>
+              </li>
+            <ul>
+          </div>
+          <!--FIN MENÚ-->
+      </nav>
+    </header><br><br><br><br><br>
+    <!-- ========== END HEADER ========== -->
+
+  <?php
+      //conectar a la base de datos
+      $con=pg_pconnect("host=localhost port=5432 dbname=BDRecords user=postgres password=BDRecords")
+      or die('La conexión falló');
+
+      $consulta = "SELECT * FROM artistas GROUP BY id";
+      $resultado = pg_query($con, $consulta);
+  ?>
+
+    <!-- DATA TABLE -->
+    <div class="container">
+        <table id="table_id" class="display"> <!--Agregar un hover-->
+          <h2 align="center">Artistas</h2><br>
+
+          <button type="button" class="button" data-target="#myModal" data-toggle="modal">Agregar</button>
+
+          <!-- Modal -->
+          <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                  <h4 class="modal-title text-center">Agregar Exposición</h4>
+                </div>
+                <div class="modal-body">
+                  <form method="post" action="agregar.php">
+                    <div class="form-group">
+                      <label>Nombre</label>
+                      <input type="text" required name="nombre" class="form-control">
+                      <label>Autor</label>
+                      <input type="text" name="autor" class="form-control">
+                      <label>Fecha de Inicio</label>
+                      <input type="date" name="fechainicio" class="form-control">
+                      <label>Fecha de Término</label>
+                      <input type="date" name="fechatermino" class="form-control">
+                      <label>Activo</label>
+                      <br>
+                      <input type="radio" name="activo" value="1" class="radio">Si
+                      <input type="radio" name="activo" value="2" class="radio">No
+                      <br>
+                      <label>Imagen</label>
+                      <br>
+                      <input type="file" required name="imagen" class="form-label" accept="image/*" multiple>
+                    </div>
+                    <input type="submit" name="agregar" value="Agregar" class="btn btn-success">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <hr>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>País de Nacimiento</th>
+                    <th>Nombre Artístico</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    while($row = pg_fetch_array($resultado)){
+                ?>
+
+                <tr>
+                    <td><?php echo $row['Artista_id']; ?></td>
+                    <td><?php echo $row['Nombre']; ?></td>
+                    <td><?php echo $row['Apellido']; ?></td>
+                    <td><?php echo $row['Pais_Nacimiento']; ?></td>
+                    <td><?php echo $row['Fecha_Nacimiento']; ?></td>
+                    <td><?php echo $row['Nombre_Artistico']; ?></td>
+                    <td><a class="btn btn-secondary btn-sm" href="edita_artistas.html?id=
+                      <?php echo $row ['id'];?>">Consultar</a></td>
+                    <td><a class="btn btn-success btn-sm" href="edita_artistas.html?id=
+                      <?php echo $row ['id'];?>">Editar</a></td>
+                    <td><a class="btn btn-danger btn-sm" href="eliminar.php?id=
+                      <?php echo $row ['id'];?>">Eliminar</a></td>
+
+                </tr>
+
+                <?php
+                    }
+                ?>
+            </tbody>
+        </table>
+    </div><!-- DATA TABLE -->
+
+<!-- ===== SCRIPT SECTION ===== -->
+<script src="https://kit.fontawesome.com/16692b5628.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- JS for this template -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="../admin/js/sidebar.js"></script>
+<!-- Data Table -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+<script>
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
+
+<!-- ===== END SCRIPT SECTION ===== -->
+</body>
+</html>

@@ -4,7 +4,7 @@
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 //Consultar los registros y mostrarlos en una tabla
  */include 'conexion.php';
-$query = "Select productor_id, nombre, apellido, fecha_nacimiento from productores";
+$query = "select Productor_id, Nombre, Apellido, Fecha_nacimiento from productores";
 $ejecucion = pg_query($con,$query);
 //var_dump($ejecucion);
 ?>

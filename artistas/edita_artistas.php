@@ -1,8 +1,7 @@
 <?php
 	include 'conexion.php';
 	$artista_id= $_GET['artista_id'];
-	$query= "select Nombre, Apellido, Pais_Nacimiento, Fecha_Nacimiento, Nombre_Artístico
-					from artistas where artista_id='$artista_id';";
+	$query= "select Nombre, Apellido, Pais_Nacimiento, Fecha_Nacimiento, Nombre_Artistico from artistas where artista_id='$artista_id';";
 	$ejecucion = pg_query($con, $query);
 	$resultado = pg_fetch_assoc($ejecucion);
 
@@ -15,7 +14,7 @@
 	</head>
 
 	<body>
-		<h2>Actualiza los datos de la disquera</h2>
+		<h2>Actualiza los datos del artista</h2>
 		<form name="update" method="post" action="edicion_artista.php">
 			<label for="nombre">Nombre:</label>
 			<input type="text" name="nombre" value="<?php echo $resultado['nombre']; ?>">

@@ -8,6 +8,11 @@ $query = "Select disquera_id, nombre, pais from disqueras";
 $ejecucion = pg_query($con,$query);
 //var_dump($ejecucion);
 ?>
+<html>
+<head>
+	<meta charset=UTF-8">
+<body>
+<a href="form_disquera.php">Nueva disquera</a>
 <table>
 	<tr>
 		<th>Id</th>
@@ -30,8 +35,8 @@ while($row = pg_fetch_assoc($ejecucion)){
 	echo "<td>".$row['disquera_id']."</td>";
 	echo "<td>".$row['nombre']."</td>";
 	echo "<td>".$row['pais']."</td>";
-	echo "<td><a href='formulario2.php?id=".$row['id']."'>Editar</a></td>";
-	echo "<td><a href='formulario3.php?id=".$row['id']."'>Borrar</a></td>";
+	echo "<td><a href='edita_disqueras.php?disquera_id=".$row['disquera_id']."'>Editar</a></td>";
+	echo "<td><a href='baja_disqueras.php?disquera_id=".$row['disquera_id']."'>Borrar</a></td>";
 	echo "</tr>";
 }
 /*}
@@ -40,3 +45,5 @@ else {
 }*/
 ?>
 </table>
+</body>
+</html>

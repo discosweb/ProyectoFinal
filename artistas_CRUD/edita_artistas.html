@@ -131,25 +131,6 @@
       $resultado = pg_query($con, $consulta);
       $row = pg_fetch_assoc($resultado);
 
-      //ESTO SE TIENE QUE MANDAR A OTRO ARCHIVOOOOOOOOOOOOOOOO
-      if (isset($_POST['actualizar'])) {
-        $nombre = $_POST['Nombre'];
-        $apellido = $_POST['Apellido'];
-        $pais_nacimiento = $_POST['Pais_Nacimiento'];
-        $fecha_nacimiento = $_POST['Fecha_Nacimiento'];
-        $nombre_artistico = $_POST['Nombre_Artistico'];
-
-        $update = "UPDATE artistas
-                    SET Nombre='$nombre', Apellido='$apellido',
-                        pais_nacimiento = '$Pais_Nacimiento',
-                        fecha_nacimiento = '$Fecha_Nacimiento',
-                        nombre_artistico = '$Nombre_Artistico'
-                    WHERE id ='$id'"; //'Nombre' = required name="Nombre" en el formulario
-
-        $res = pg_query($con,$update);
-        header('location: catalogo_artistas.php');
-      }
-
     ?>
 
     <!-- DATA TABLE -->

@@ -20,7 +20,7 @@
 			<input type="text" name="apellido">
 			<br/>
 			<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-			<input type="text" name="fecha_nacimiento">
+			<input type="date" name="fecha_nacimiento">
 			<br/>
 			<input type="submit" value="Enviar">
 		</form>

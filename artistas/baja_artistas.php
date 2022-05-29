@@ -29,7 +29,7 @@
 
 	</tr>
 		</table>
-	<form name="delete" action="eliminar_artistass.php" method="post">
+	<form name="delete" action="eliminar_artistas.php" method="post">
 		<input type="hidden" name="id" value="<?php echo $artista_id;?>">
 		<input type="submit" value="Eliminar">
 		<a href="catalogo_artistas.php"><input type="button" value="Cancelar"></a>

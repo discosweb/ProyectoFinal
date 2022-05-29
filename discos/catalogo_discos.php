@@ -4,7 +4,7 @@
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 //Consultar los registros y mostrarlos en una tabla
  */include 'conexion.php';
-$query = "select Productor_id, Nombre, Apellido, Fecha_nacimiento from productores";
+$query = "Select disco_id, titulo, año, genero, costo from discos";
 $ejecucion = pg_query($con,$query);
 //var_dump($ejecucion);
 ?>
@@ -12,13 +12,14 @@ $ejecucion = pg_query($con,$query);
 <head>
 	<meta charset=UTF-8">
 <body>
-<a href="form_productor.php">Nuevo Productor</a>
+<a href="form_disco.php">Nuevo disco</a>
 <table>
 	<tr>
 		<th>Id</th>
-		<th>Nombre</th>
-		<th>Apellido</th>
-		<th>Fecha Nacimiento</th>
+		<th>Titulo</th>
+		<th>Año</th>
+		<th>Genero</th>
+		<th>Costo</th>
 		<th>Editar</th>
 		<th>Borrar</th>
 	</tr>
@@ -33,12 +34,13 @@ $ejecucion = pg_query($con,$query);
 }*/
 while($row = pg_fetch_assoc($ejecucion)){
 	echo "<tr>";
-	echo "<td>".$row['productor_id']."</td>";
-	echo "<td>".$row['nombre']."</td>";
-	echo "<td>".$row['apellido']."</td>";
-	echo "<td>".$row['fecha_nacimiento']."</td>";
-	echo "<td><a href='edita_productores.php?productor_id=".$row['productor_id']."'>Editar</a></td>";
-	echo "<td><a href='baja_productores.php?productor_id=".$row['productor_id']."'>Borrar</a></td>";
+	echo "<td>".$row['disco_id']."</td>";
+	echo "<td>".$row['titulo']."</td>";
+	echo "<td>".$row['año']."</td>";
+	echo "<td>".$row['genero']."</td>";
+	echo "<td>".$row['costo']."</td>";
+	echo "<td><a href='edita_discos.php?disco_id=".$row['disco_id']."'>Editar</a></td>";
+	echo "<td><a href='baja_discos.php?disco_id=".$row['disco_id']."'>Borrar</a></td>";
 	echo "</tr>";
 }
 /*}

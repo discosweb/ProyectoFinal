@@ -7,7 +7,7 @@
 	$fecha_nacimiento = strip_tags($_POST["fecha_nacimiento"]);
 	$nombre_artistico = strip_tags($_POST["nombre_artistico"]);
 
-	$insertar = "insert into Artistas (Nombre, Apellido, Pais_Nacimiento, Fecha_Nacimiento, Nombre_Artístico)
+	$insertar = "insert into Artistas (Nombre, Apellido, Pais_Nacimiento, Fecha_Nacimiento, Nombre_Artistico)
 							values ('$nombre', '$apellido', '$pais_nacimiento', '$fecha_nacimiento','$nombre_artistico');";
 	$query = pg_query($con, $insertar);
 	if($insertar){

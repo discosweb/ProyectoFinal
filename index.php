@@ -8,7 +8,14 @@
 
     <title>ProyectoFinal</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
+    <link href="../css/carousel.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
 
     <style>
@@ -32,27 +39,9 @@
 <body>
   <!-- ========== HEADER ========== -->
   <header>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav.navbar ">
-         <!--MENÚ-->
-         <div class="collapse navbar-collapse" id="navbarCollapse">
-           <ul class="navbar-nav mr-auto">
-             <li class="nav-item active">
-                 <a class="nav-link" href="creditos.php">Créditos</a>
-             </li>
-           <ul>
-         </div>
-         <!--FIN MENÚ-->
-     </nav>
+
    </header><br><br><br><br><br>
    <!-- ========== END HEADER ========== -->
-		<?php
-		if(isset($_GET['error']) && $_GET['error'] == 1){
-			echo "<p>Usuario o contraseña inválida</p>";
-		}
-		else if(isset($_GET['error']) && $_GET['error'] == 2){
-			echo "<div style='color:red'>No se han ingresado usuario y contraseña para autentificarse</div><br>";
-		}
-	?>
 
     <div class="wrapper fadeInDown">
         <div id="formContent">
@@ -67,9 +56,20 @@
                 <i class="fas fa-user"></i> <input type="text" id="usuario" required="" class="fadeIn second" name="usuario" placeholder="usuario"><br>
                 <i class="fas fa-key"></i> <input type="password" id="contraseña" required="" class="fadeIn third" name="contraseña" placeholder="contraseña"><br>
                 <input class="fadeIn fourth" type="submit" name="acceder" value="acceder"><br>
-
-                
             </form>
+
+            <div>
+              <a class="" href="creditos.php">Créditos</a>
+            </div>
+
+            <?php
+        		if(isset($_GET['error']) && $_GET['error'] == 1){
+        			echo "<div class="alert alert-warning"><p>Usuario o contraseña inválida</p></div>";
+        		}
+        		else if(isset($_GET['error']) && $_GET['error'] == 2){
+        			echo "<div class="alert alert-danger">No se han ingresado usuario y contraseña para autentificarse</div><br>";
+        		}
+        	?>
 
         </div>
     </div>

@@ -29,7 +29,11 @@
 			<select name="grupo">
 			<?php
 				while($row = pg_fetch_assoc($ejecucion2)){
-					echo "<option value='".$row['grupo_id']."'>".$row['nombre']."</option>";
+					if($row['grupo_id'] == $resultado['grupo_id']){
+						echo "<option value='".$row['grupo_id']."' selected>".$row['nombre']."</option>";
+					} else {
+						echo "<option value='".$row['grupo_id']."'>".$row['nombre']."</option>";
+					}
 				}
 			?>
 			</select>
@@ -44,7 +48,11 @@
 			<select name="disqueras">
 			<?php
 				while($row = pg_fetch_assoc($ejecucion3)){
-					echo "<option value='".$row['disquera_id']."'>".$row['nombre'].",".$row['pais']."</option>";
+					if($row['disquera_id'] == $resultado['disquera_id']){
+						echo "<option value='".$row['disquera_id']."' selected>".$row['nombre'].",".$row['pais']."</option>";
+					} else {
+						echo "<option value='".$row['disquera_id']."'>".$row['nombre'].",".$row['pais']."</option>";
+					}
 				}
 			?>
 			</select>
@@ -53,7 +61,11 @@
 			<select name="productores">
 			<?php
 				while($row = pg_fetch_assoc($ejecucion4)){
-					echo "<option value='".$row['productor_id']."'>".$row['nombre']." ".$row['apellido']."</option>";
+					if($row['productor_id'] == $resultado['productor_id']){
+						echo "<option value='".$row['productor_id']."' selected >".$row['nombre']." ".$row['apellido']."</option>";
+					} else {
+						echo "<option value='".$row['productor_id']."'>".$row['nombre']." ".$row['apellido']."</option>";
+					}
 				}
 			?>
 			</select>

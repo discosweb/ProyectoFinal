@@ -1,20 +1,3 @@
-<?php
-/*
-@name: index.php
-
-@authors:
-  1. Cano Jiménez Janeth
-  2. Parra Huerta Mario
-  3. Saldate Luna Luis Omar
-  4. Ortega Hernandez Ariana Jatziri
-
-@description:
-Formulario para indicar el nombre de usuario y contraseña para ingresar al sistema,
-envía los datos a login.php, quien verifica, inicia sesión y
-redirige a catalogo_discos.php, en caso contrario, regresa a index.php.
-*/
-<?
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,19 +45,14 @@ redirige a catalogo_discos.php, en caso contrario, regresa a index.php.
      </nav>
    </header><br><br><br><br><br>
    <!-- ========== END HEADER ========== -->
-
-    <?php
-        //CERRAR Y DESTRUIR SESIÓN
-        session_start();
-        if (ini_get("session.use_cookies")){
-            $params = session_get_cookie_params();
-            setcookie(session_name(), '',  time() - 3600,
-                $params["path"], $params["domain"],
-                $params["secure"], $params["httponly"]
-            );
-        }
-        session_destroy();
-    ?>
+		<?php
+		if(isset($_GET['error']) && $_GET['error'] == 1){
+			echo "<p>Usuario o contraseña inválida</p>";
+		}
+		else if(isset($_GET['error']) && $_GET['error'] == 2){
+			echo "<div style='color:red'>No se han ingresado usuario y contraseña para autentificarse</div><br>";
+		}
+	?>
 
     <div class="wrapper fadeInDown">
         <div id="formContent">
@@ -90,12 +68,7 @@ redirige a catalogo_discos.php, en caso contrario, regresa a index.php.
                 <i class="fas fa-key"></i> <input type="password" id="contraseña" required="" class="fadeIn third" name="contraseña" placeholder="contraseña"><br>
                 <input class="fadeIn fourth" type="submit" name="acceder" value="acceder"><br>
 
-                <?php
-                    if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true')
-                    {
-                        echo "<div style='color:red'>Usuario o contraseña inválida</div><br>";
-                    }
-                ?>
+                
             </form>
 
         </div>

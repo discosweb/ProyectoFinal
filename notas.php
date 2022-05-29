@@ -15,8 +15,8 @@
 NOTAS
 
 artistas
-	alta_Artistas
-	baja_artistas
+	//alta_Artistas
+	//baja_artistas
 	catalogo
 	edicion
 	edita

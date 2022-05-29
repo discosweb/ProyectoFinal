@@ -9,23 +9,32 @@
   4. Ortega Hernandez Ariana Jatziri
 
 @Description: Archivo donde se valida el ingreso del usuario adminsitrador.
-*/
+ */
+
+	include 'conexion.php';
+	//Recibir usuario y contrasena para verificar
+	$usuario = strip_tags($_POST['usuario']);
+	$password = strip_tags($_POST['contraseña']);
+	//ejecutar consulta a bd y asigno a variables
+	$consulta = "select username, password from usuarios where username='$usuario'";
+	$ejecucion = pg_query($con,$consulta);
+	$resultado = pg_fetch_assoc($ejecucion);
+	$usuariobd = $resultado['username'];
+	$contrasenabd = $resultado['password'];
+
+	if($usuario == $usuariobd && $password == $contrasenabd){
+		//Creacion de sesion
+		session_start();
+		//Asignar variables de sesion: autenticación exitosa
+		$_SESSION['valida']=true;
+		//redireccionar ctalogo discos.php
+		header('Location: discos/catalogo_discos.php');
+	} else{
+		//Redireccionar a index.php?error=1
+		header('Location: index.php?error=1');
+		//echo "No coinciden";
+	}
+
 ?>
 
-<!-- ========== VALIDACIÓN USUARIO ADMINISTRADOR ========== -->
-<?php
-  $usuario = $_POST["usuario"];
-  $password = $_POST["contraseña"];
-  $perfil = "administrador";
 
-  if(strtolower($usuario) == strtolower("discos_DBO") && strtolower($password) == strtolower("discos_DBO") && $perfil == "administrador" )
-  {
-    session_start();
-    $_SESSION['usuario'] = strtolower($usuario);
-    header("location: catalogo_discos.php");//redirigir catalogo_discos.php si el inicio de sesión fue exitoso
-  } else {
-      header("location:index.php?fallo=true");//redirigir a index.php si el inicio de sesión no fue exitoso
-      exit();
-  }
-?>
-<!-- ========== END VALIDACIÓN USUARIO ADMINISTRADOR ========== -->

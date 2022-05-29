@@ -17,11 +17,12 @@ NOTAS
 artistas
 	//alta_Artistas
 	//baja_artistas
-	catalogo
-	edicion
-	edita
-	eliminar
-	form
+	//catalogo
+	//edicion
+	//edita
+	//eliminar
+	//form
+
 canciones
 	alta cancion
 	alta compositor
@@ -36,24 +37,24 @@ canciones
 
 compositores
 
-	alta
-	baja
-	catalogo
-	edicion
-	edita
-	eliminar
-	form
+	//alta
+	//baja
+	//catalogo
+	//edicion
+	//edita
+	//eliminar
+	//form
 
 discos
-	alta_cancionDisco      --> Solo es PHP
-	alta_disco             --> Solo es PHP
+	//alta_cancionDisco      --> Solo es PHP
+	//alta_disco             --> Solo es PHP
 	//baja_disco
 	//cancion_Disco
 	//catalogo
-	edicion_disco           --> Solo es PHP
+	//edicion_disco           --> Solo es PHP
 	//edita_disco
-	eliminar_Canciondisco   --> Solo es PHP
-	eliminar_discos         --> Solo es PHP
+	//eliminar_Canciondisco   --> Solo es PHP
+	//eliminar_discos         --> Solo es PHP
 	//form_disco
 
 disqueras
@@ -81,8 +82,8 @@ grupos
 
 productores
 
-	alta
-	baja
+	//alta
+	//baja
 	catalogo
 	edicion
 	edita

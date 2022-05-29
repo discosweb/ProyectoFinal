@@ -6,7 +6,10 @@
 	$resultado = pg_fetch_assoc($ejecucion);
 	$query2= "select * from grupos;";
 	$ejecucion2 = pg_query($con,$query2);
-	
+	$query3= "select * from disqueras;";
+	$ejecucion3 = pg_query($con,$query3);
+	$query4= "select * from productores;";
+	$ejecucion4 = pg_query($con,$query4);	
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +33,7 @@
 				}
 			?>
 			</select>
-			<br/>
+			<br/ >
 			<label for="anio">Año:</label>
 			<input type="date" name="anio" value="<?php echo $resultado['año'];?>">
 			<br/>
@@ -40,8 +43,8 @@
 			<label for="disqueras">Disquera:</label>
 			<select name="disqueras">
 			<?php
-				while($row = pg_fetch_assoc($ejecucion2)){
-					echo "<option value='".$row['disquera_id']."'>".$row['nombre']."</option>";
+				while($row = pg_fetch_assoc($ejecucion3)){
+					echo "<option value='".$row['disquera_id']."'>".$row['nombre'].",".$row['pais']."</option>";
 				}
 			?>
 			</select>
@@ -49,16 +52,16 @@
 			<label for="productores">Productor</label>
 			<select name="productores">
 			<?php
-				while($row = pg_fetch_assoc($ejecucion3)){
+				while($row = pg_fetch_assoc($ejecucion4)){
 					echo "<option value='".$row['productor_id']."'>".$row['nombre']." ".$row['apellido']."</option>";
 				}
 			?>
 			</select>
 			<br/>
 			<label for="costo">Costo:</label>
-			<input type="number" name="costo" value="<?php echo $resultado['costo'];?>">
+			<input type="number" name="costo" step="0.01" value="<?php echo $resultado['costo'];?>">
 			<br/>
-			<input type="hidden" name="id" value="<?php echo $grupo_id; ?>">
+			<input type="hidden" name="id" value="<?php echo $disco_id; ?>">
 			<input type="submit" value="Enviar">
 		</form>
 <?php

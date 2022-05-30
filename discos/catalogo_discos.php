@@ -137,8 +137,7 @@
 						<td><?php echo $row['genero']; ?></td>
 						<td><?php echo $row['costo']; ?></td>
 
-						<td><a class="btn btn-success btn-sm" href="edita_discos.php?id=
-							<?php echo $row ['disco_id'];?>">Editar</a></td>
+						<td><a class="btn btn-success btn-sm" href="edita_discos.php?id= <?php echo $row ['disco_id'];?>">Editar</a></td>
 						<td><a class="btn btn-danger btn-sm" href="baja_discos.php?id=
 							<?php echo $row ['disco_id'];?>">Eliminar</a></td>
 

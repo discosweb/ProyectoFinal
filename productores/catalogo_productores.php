@@ -1,13 +1,13 @@
 <?php
-	include 'conexion.php';
-	$productor_id= $_GET['productor_id'];
-	$query= "select Nombre, Apellido, Fecha_nacimiento from productores
-					where productor_id='$productor_id';";
-	$ejecucion = pg_query($con, $query);
-	$resultado = pg_fetch_assoc($ejecucion);
-
+//verificar la sesion:
+/*session_start();
+if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+//Consultar los registros y mostrarlos en una tabla
+ */include 'conexion.php';
+$query = "select Productor_id, Nombre, Apellido, Fecha_nacimiento from productores";
+$ejecucion = pg_query($con,$query);
+//var_dump($ejecucion);
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -103,32 +103,56 @@
 	 </header><br><br><br><br><br>
 	 <!-- ========== END HEADER ========== -->
 
-	 <!-- DATA TABLE -->
-	 <div class="container">
-
-		<h1>Actualiza los datos del productor</h1>
-
-		<table id="table_id" class="display"> <!--Agregar un hover-->
+   <!-- DATA TABLE -->
+   <div class="container-fluid">
+     <table id="table_id" class="table table-bordered table-striped"> <!--Agregar un hover-->
+       <h2 align="center">Productores</h2><br>
 
 
-		<form name="update" method="post" action="edicion_productor.php">
 
-			<div class="form-group">
+<a class="btn btn-secondary btn-sm" href="form_productor.php">Nuevo Productor</a>
+<hr>
+  <thead>
+    <tr>
+		<th>Id</th>
+		<th>Nombre</th>
+		<th>Apellido</th>
+		<th>Fecha Nacimiento</th>
+		<th>Editar</th>
+		<th>Borrar</th>
+	</tr>
+  	</thead>
+<?php
+/*while($row = pg_fetch_row($ejecucion)){
+	echo "<tr>";
+	echo "<td>".$row[0]."</td>";
+	echo "<td>".$row[1]."</td>";
+	echo "<td>".$row[2]."</td>";
+	echo "<td>".$row[3]."</td>";
+	echo "</tr>";
+}*/
 
-			<label for="nombre">Nombre:</label>
-			<input class="form-control" type="text" name="nombre" value="<?php echo $resultado['nombre']; ?>">
-
-			<label for="apellido">Apellido:</label>
-			<input class="form-control" type="text" name="apellido" value="<?php echo $resultado['apellido']; ?>">
-
-			<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-			<input class="form-control" type="date" name="fecha_nacimiento" value="<?php echo $resultado['fecha_nacimiento']; ?>">
-
-			<input type="hidden" name="id" value="<?php echo $productor_id; ?>">
-			</div>
-			<input class="btn btn-success" type="submit" value="Enviar">
-		</form>
-		</table>
-		</div><!-- DATA TABLE -->
-	</body>
+<tbody>
+<?php
+while($row = pg_fetch_assoc($ejecucion)){
+  ?>
+	<tr>
+	<td><? php echo $row['productor_id']; ?></td>
+	<td><? php echo $row['nombre']; ?></td>
+	<td><? php echo $row['apellido']; ?></td>
+	<td><? php echo $row['fecha_nacimiento']; ?></td>
+	<td><a class="btn btn-success btn-sm"  href="edita_productores.php?productor_id= <?php echo $row['productor_id'];?>">Editar</a></td>
+	<td><a class="btn btn-danger btn-sm" href="baja_productores.php?productor_id= <?php echo $row['productor_id'];?>">Borrar</a></td>
+	</tr>
+  <?php
+      }
+  ?>
+/*}
+else {
+	header('Location: ../index.php?error=2');
+}*/
+</tbody>
+</table>
+</div><!-- DATA TABLE -->
+</body>
 </html>

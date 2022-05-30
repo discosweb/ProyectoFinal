@@ -84,11 +84,11 @@ productores
 
 	//alta
 	//baja
-	catalogo
-	edicion
-	edita
-	elimina
-	form
+	//catalogo
+	//edicion
+//	edita
+//	elimina
+	//form
 
 /*conectar a la base de datos*/
 $con=pg_pconnect("host=localhost port=5432 dbname=GaleriaVirtualSDC user=postgres password=J4N3TH99*")

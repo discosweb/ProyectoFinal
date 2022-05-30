@@ -178,7 +178,7 @@
 
 				<?php
 					echo "<a class="btn btn-success btn-sm" href='cancionDisco.php?disco_id=".$disco_id."'>Editar canciones</a>";
-					echo "</br>";
+						echo "</br>";
 					echo "<a class="btn btn-secondary btn-sm" href='catalogo_discos.php'>Volver a catalogo</a>";
 				?>
 

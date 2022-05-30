@@ -69,16 +69,16 @@ disqueras
 
 grupos
 
-	alta artistas grupo
-	alta grupo
-	artistas grupo
-	baja grupos
-	catalogo grupos
-	edicion
-	edita
-	eliminar artista grupo
-	eliminar grupos
-	form
+	//alta artistas grupo
+	//alta grupo
+//	artistas grupo
+	//baja grupos
+	//catalogo grupos
+//	edicion
+	//edita
+	//eliminar artista grupo
+//	eliminar grupos
+//	form
 
 productores
 

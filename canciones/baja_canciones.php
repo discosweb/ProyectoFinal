@@ -121,11 +121,16 @@
 </tr>
 </tbody>
 </table>
+
+	<div align="center">
+
 	<form name="delete" action="eliminar_canciones.php" method="post">
-		<input type="hidden" name="id" value="<?php echo $cancion_id;?>">
-		<input type="submit" value="Eliminar">
-		<a href="catalogo_canciones.php"><input type="button" value="Cancelar"></a>
+		<input type="hidden" name="id" value="<?php echo $cancion_id;?>" >
+		<input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+		<a href="catalogo_canciones.php"><input type="button" value="Cancelar" class="btn btn-success btn-sm"></a>
 	</form>
+</div>
+</div>
 	</body>
 
 </html>

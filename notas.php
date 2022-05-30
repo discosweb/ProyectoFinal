@@ -24,16 +24,16 @@ artistas
 	//form
 
 canciones
-	alta cancion
-	alta compositor
-	baja canciones
-	catalogo canciones
-	compositor cancion
-	edicion cancion
-	edita canciones
-	eliminar canciones
-	eliminar compositor cancion
-	form
+	//alta cancion
+	//alta compositor
+//	baja canciones
+	//catalogo canciones
+	//compositor cancion   -->PREGUNTAR COMO SE VE Y EN cancionDisco.php
+	//edicion cancion
+	//edita canciones
+	//eliminar canciones
+	//eliminar compositor cancion
+	//form
 
 compositores
 

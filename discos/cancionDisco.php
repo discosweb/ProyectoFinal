@@ -136,7 +136,7 @@
 			<td><?php echo $row['cancion_id']; ?></td>
 			<td><?php echo $row['titulo']; ?></td>
 
-			echo "<td><a href='eliminar_cancionDisco.php?cancion_id=".$row['cancion_id']."&disco_id=".$disco_id."' class="btn btn-danger btn-sm">Borrar</a></td>";
+		<?php	echo "<td><a href='eliminar_cancionDisco.php?cancion_id=".$row['cancion_id']."&disco_id=".$disco_id."' class="btn btn-danger btn-sm">Borrar</a></td>"; ?>
 			</tr>
 
 		<?php
@@ -170,7 +170,7 @@
 
 	<a href="catalogo_discos.php"><p>Regresar a catalogo</p></a>
 
-	</div
+</div>
 
 </body>
 </html>

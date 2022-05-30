@@ -1,6 +1,7 @@
 <?php
-
-
+//Verificar si existe una sesion:
+session_start();
+if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 
 ?>
 <!DOCTYPE html>
@@ -49,3 +50,9 @@
 		</form>
 	</body>
 </html>
+<?php
+}
+else{
+	header('Location: ../index.php?error=2');
+}
+?>

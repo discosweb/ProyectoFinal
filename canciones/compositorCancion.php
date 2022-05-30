@@ -137,15 +137,11 @@ while($row = pg_fetch_assoc($ejecucion0)){
 	<td><?php echo $row['nombre']; ?></td>
 	<td><?php echo $row['apellido']; ?></td>
 
-	<?php echo "<td><a href='eliminar_compositorCancion.php?compositor_id=".$row['compositor_id']."&cancion_id=".$cancion_id."' class="btn btn-danger btn-sm">Borrar</a></td>"; ?>
+	<?php echo "<td><a href='eliminar_compositorCancion.php?compositor_id=".$row['compositor_id']."&cancion_id=".$cancion_id."' class='btn btn-danger btn-sm'>Borrar</a></td>"; ?>
 	</tr>
 	<?php
 				}
 	?>
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
 
 </tbody>
 

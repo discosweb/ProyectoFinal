@@ -129,7 +129,7 @@ $ejecucion = pg_query($con,$query);
 	echo "<td>".$row[3]."</td>";
 	echo "</tr>";
 }*/
-<?php
+
 while($row = pg_fetch_assoc($ejecucion)){
 
   ?>
@@ -144,10 +144,6 @@ while($row = pg_fetch_assoc($ejecucion)){
   <?php
       }
   ?>
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
 
 </tbody>
 </table>

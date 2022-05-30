@@ -122,6 +122,7 @@ $ejecucion = pg_query($con,$query);
 		<th>Borrar</th>
 	</tr>
   	</thead>
+<tbody>
 <?php
 /*while($row = pg_fetch_row($ejecucion)){
 	echo "<tr>";
@@ -132,25 +133,20 @@ $ejecucion = pg_query($con,$query);
 	echo "</tr>";
 }*/
 
-<tbody>
-<?php
 while($row = pg_fetch_assoc($ejecucion)){
   ?>
 	<tr>
-	<td><? php echo $row['productor_id']; ?></td>
-	<td><? php echo $row['nombre']; ?></td>
-	<td><? php echo $row['apellido']; ?></td>
-	<td><? php echo $row['fecha_nacimiento']; ?></td>
+	<td><?php echo $row['productor_id']; ?></td>
+	<td><?php echo $row['nombre']; ?></td>
+	<td><?php echo $row['apellido']; ?></td>
+	<td><?php echo $row['fecha_nacimiento']; ?></td>
 	<td><a class="btn btn-success btn-sm"  href="edita_productores.php?productor_id= <?php echo $row['productor_id'];?>">Editar</a></td>
 	<td><a class="btn btn-danger btn-sm" href="baja_productores.php?productor_id= <?php echo $row['productor_id'];?>">Borrar</a></td>
 	</tr>
   <?php
       }
   ?>
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
+
 </tbody>
 </table>
 </div><!-- DATA TABLE -->

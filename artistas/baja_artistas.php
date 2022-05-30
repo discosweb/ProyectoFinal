@@ -116,7 +116,10 @@ if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	<tr>
 		<th>Id</th>
 		<th>Nombre</th>
+		<th>Apellido</th>
 		<th>País</th>
+		<th>Fecha nacimiento</th>
+		<th>Nombre artistico</th>
 	</tr>
 	</thead>
 

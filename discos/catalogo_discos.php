@@ -128,22 +128,17 @@
 					<?php
 
 					while($row = pg_fetch_assoc($ejecucion)){
-					?>
+						echo "<tr>";
+						echo "<td>".$row['disco_id']."</td>";
+						echo "<td>".$row['titulo']."</td>";
+						echo "<td>".$row['año']."</td>";
+						echo "<td>".$row['genero']."</td>";
+						echo "<td>".$row['costo']."</td>";
+						echo "<td><a class='btn btn-success btn-sm' href='edita_discos.php?disco_id=".$row['disco_id']."'>Editar</a></td>";
+						echo "<td><a class='btn btn-danger btn-sm' href='baja_discos.php?disco_id=".$row['disco_id']."'>Borrar</a></td>";
 
-					<tr>
-						<td><?php echo $row['disco_id']; ?></td>
-						<td><?php echo $row['titulo']; ?></td>
-						<td><?php echo $row['año']; ?></td>
-						<td><?php echo $row['genero']; ?></td>
-						<td><?php echo $row['costo']; ?></td>
-
-						<td><a class="btn btn-success btn-sm" href="edita_discos.php?id= <?php echo $row ['disco_id'];?>">Editar</a></td>
-						<td><a class="btn btn-danger btn-sm" href="baja_discos.php?id=
-							<?php echo $row ['disco_id'];?>">Eliminar</a></td>
-
-					</tr>
-
-					<?php
+						echo "</tr>";
+	
 							}
 					?>
 

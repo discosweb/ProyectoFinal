@@ -140,19 +140,21 @@ while($row = pg_fetch_assoc($ejecucion)){
 	<td><?php echo $row['grupo_id']; ?></td>
 	<td><?php echo $row['nombre']; ?></td>
 	<td><?php echo $row['pais_origen']; ?></td>
-	<td><a class="btn btn-success btn-sm" href="edita_grupos.php?grupo_id= <?php echo $row['grupo_id']; ?>">Editar</a></td>
-	<td><a class="btn btn-danger btn-sm"href="baja_grupos.php?grupo_id= <? php echo $row['grupo_id']; ?>">Borrar</a></td>
+	<td><a class="btn btn-success btn-sm" href="edita_grupos.php?grupo_id=<?php echo $row['grupo_id']; ?>">Editar</a></td>
+	<td><a class="btn btn-danger btn-sm"href="baja_grupos.php?grupo_id=<?php echo $row['grupo_id']; ?>">Borrar</a></td>
 	</tr>
   <?php
       }
   ?>
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
+
 
 </tbody>
 </table>
 </div><!-- DATA TABLE -->
 </body>
 </html>
+<?
+}
+else {
+	header('Location: ../index.php?error=2');
+}

@@ -137,24 +137,19 @@ $ejecucion = pg_query($con,$query);
 	echo "</tr>";
 }*/
 
-<? php
-while($row = pg_fetch_assoc($ejecucion)){
-   ?>
 
-	<tr>
-	<td><?php echo $row['disquera_id']; ?></td>
-	<td><?php echo $row['nombre']; ?></td>
-	<td><?php echo $row['pais']; ?></td>
-	<td><a class="btn btn-success btn-sm" href="edita_disqueras.php?disquera_id= <?php $row['disquera_id'];?>">Editar</a></td>
-	<td><a class="btn btn-danger btn-sm" href="baja_disqueras.php?disquera_id= <?php $row['disquera_id'];?>">Borrar</a></td>
-	</tr>
-  <?php
+while($row = pg_fetch_assoc($ejecucion)){
+   	echo "<tr>";
+	echo "<td>".$row['disquera_id']."</td>";
+	echo "<td>".$row['nombre']."</td>";
+	echo "<td>".$row['pais']."</td>";
+	echo "<td><a class='btn btn-success btn-sm' href='edita_disqueras.php?disquera_id=".$row['disquera_id']."'>Editar</a></td>";
+	echo "<td><a class='btn btn-danger btn-sm' href='baja_disqueras.php?disquera_id=".$row['disquera_id']."'>Borrar</a></td>";
+	echo "</tr>";
+  
       }
   ?>
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
+
 </tbody>
 </table>
 </div><!-- DATA TABLE -->

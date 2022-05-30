@@ -64,10 +64,10 @@
 
             <?php
         		if(isset($_GET['error']) && $_GET['error'] == 1){
-        			echo "<div class="alert alert-warning"><p>Usuario o contraseña inválida</p></div>";
+        			echo "<div class='alert alert-warning'><p>Usuario o contraseña inválida</p></div>";
         		}
         		else if(isset($_GET['error']) && $_GET['error'] == 2){
-        			echo "<div class="alert alert-danger">No se han ingresado usuario y contraseña para autentificarse</div><br>";
+        			echo "<div class='alert alert-danger'>No se han ingresado usuario y contraseña para autentificarse</div><br>";
         		}
         	?>
 

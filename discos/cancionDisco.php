@@ -136,17 +136,14 @@
 			<td><?php echo $row['cancion_id']; ?></td>
 			<td><?php echo $row['titulo']; ?></td>
 
-		<?php	echo "<td><a href='eliminar_cancionDisco.php?cancion_id=".$row['cancion_id']."&disco_id=".$disco_id."' class="btn btn-danger btn-sm">Borrar</a></td>"; ?>
+		<?php	echo "<td><a href='eliminar_cancionDisco.php?cancion_id=".$row['cancion_id']."&disco_id=".$disco_id."' class='btn btn-danger btn-sm'>Borrar</a></td>"; ?>
 			</tr>
 
 		<?php
 					}
 		?>
 
-		/*}
-		else {
-			header('Location: ../index.php?error=2');
-		}*/
+	
 
 	</tbody>
 </table>

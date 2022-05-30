@@ -132,16 +132,15 @@ while($row = pg_fetch_assoc($ejecucion0)){
 
 	?>
 	<tr>
-	<td><? php echo $row['artista_id']; ?></td>
-	<td><? php echo $row['nombre']; ?></td>
-	<td><? php echo $row['apellido']; ?></td>
-	<?php echo "<td><a class="btn btn-danger btn-sm" href='eliminar_artistaGrupo.php?artista_id=".$row['artista_id']."&grupo_id=".$grupo_id."'>Borrar</a></td>"; ?>
+	<td><?php echo $row['artista_id']; ?></td>
+	<td><?php echo $row['nombre']; ?></td>
+	<td><?php echo $row['apellido']; ?></td>
+	<?php echo "<td><a class='btn btn-danger btn-sm' href='eliminar_artistaGrupo.php?artista_id=".$row['artista_id']."&grupo_id=".$grupo_id."'>Borrar</a></td>"; ?>
 	</tr>
+<?php
 }
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
+?>
+
 </tbody>
 </table>
 </div>

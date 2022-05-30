@@ -135,28 +135,22 @@ $ejecucion = pg_query($con,$query);
 	echo "</tr>";
 }*/
 
-<?php
+
 while($row = pg_fetch_assoc($ejecucion)){
 
-	?>
 
-	<tr>
-	<td> <?php $row['artista_id']; ?></td>
-	<td> <?php $row['nombre']; ?></td>
-	<td> <?php $row['apellido']; ?></td>
-	<td> <?php $row['pais_nacimiento']; ?></td>
-	<td> <?php $row['fecha_nacimiento']; ?></td>
-	<td> <?php $row['nombre_artistico']; ?></td>
-	<td><a class="btn btn-success btn-sm" href="edita_artistas.php?artista_id= <?php echo $row['artista_id'];?>">Editar</a></td>
-	<td><a class="btn btn-danger btn-sm" href="baja_artistas.php?artista_id= <?php echo $row['artista_id'];?>">Borrar</a></td>
-	</tr>
-  <?php
-      }
-  ?>
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
+
+	echo "<tr>";
+	echo"<td>".$row['artista_id']."</td>";
+	echo "<td>".$row['nombre']."</td>";
+	echo "<td>".$row['apellido']."</td>";
+	echo "<td>".$row['pais_nacimiento']."</td>";
+	echo "<td>".$row['fecha_nacimiento']."</td>";
+	echo "<td>".$row['nombre_artistico']."</td>";
+	echo "<td><a class='btn btn-success btn-sm' href='edita_artistas.php?artista_id=".$row['artista_id']."'>Editar</a></td>";
+	echo "<td><a class='btn btn-danger btn-sm' href='baja_artistas.php?artista_id=".$row['artista_id']."'>Borrar</a></td>";
+	echo "</tr>";
+}
 ?>
 </tbody>
 </table>

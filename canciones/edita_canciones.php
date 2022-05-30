@@ -117,9 +117,9 @@
 			<input class="btn btn-success" type="submit" value="Enviar">
 		</form>
 <?php
-		echo "<a class="btn btn-success btn-sm" href='compositorCancion.php?cancion_id=".$cancion_id."'>Editar compositores</a>";
+		echo "<a class='btn btn-success btn-sm' href='compositorCancion.php?cancion_id=".$cancion_id."'>Editar compositores</a>";
 			echo "</br>";
-		echo "<a class="btn btn-secondary btn-sm" href='catalogo_canciones.php'>Volver a catalogo</a>";
+		echo "<a class='btn btn-secondary btn-sm' href='catalogo_canciones.php'>Volver a catalogo</a>";
 	?>
 
 </table>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$grupo_id= $_GET['grupo_id'];
 	$query= "select nombre, pais_origen from grupos where grupo_id='$grupo_id';";
 	$ejecucion = pg_query($con, $query);

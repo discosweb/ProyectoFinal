@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$id= $_POST['id'];
 	$query = "delete from compositores where compositor_id='$id';";
 	$resultado = pg_query($con,$query);

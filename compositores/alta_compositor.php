@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 
 	$nombre = strip_tags($_POST["nombre"]);
 	$apellido = strip_tags($_POST["apellido"]);

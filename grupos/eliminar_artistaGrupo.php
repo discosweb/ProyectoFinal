@@ -1,8 +1,8 @@
 <?php
-<?php
+
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$artista= $_GET['artista_id'];
 	$grupo= $_GET['grupo_id'];
 	$query = "delete from grupo_artista where artista_id='$artista' AND grupo_id='$grupo';";

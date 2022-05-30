@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$cancion_id = $_GET['cancion_id'];
 	$consultanombre = "select titulo from canciones where cancion_id='$cancion_id'";
 	$query0= "select compositor_id, nombre, apellido from compositores where compositor_id IN (select compositor_id from cancion_compositor where cancion_id = '$cancion_id');";

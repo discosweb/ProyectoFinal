@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$disquera_id= $_GET['disquera_id'];
 	$query= "select Nombre,Pais from disqueras where disquera_id='$disquera_id';";
 	$ejecucion = pg_query($con, $query);

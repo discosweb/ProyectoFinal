@@ -3,7 +3,7 @@
 session_start();
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 //Consultar los registros y mostrarlos en una tabla
-include 'conexion.php';
+include '../conexion.php';
 $query = "Select compositor_id, nombre, apellido, pais_nacimiento, fecha_nacimiento
  					from compositores";
 $ejecucion = pg_query($con,$query);

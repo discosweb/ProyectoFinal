@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$cancion_id= $_GET['cancion_id'];
 	$query= "select titulo from canciones where cancion_id='$cancion_id';";
 	$ejecucion = pg_query($con, $query);

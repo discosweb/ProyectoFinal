@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$grupo_id = $_GET['grupo_id'];
 	$consultanombre = "select nombre from grupos where grupo_id='$grupo_id'";
 	$query0= "select artista_id, nombre, apellido from artistas where artista_id IN (select artista_id from grupo_artista where grupo_id = '$grupo_id');";

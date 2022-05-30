@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-include 'conexion.php';
+include '../conexion.php';
 
 	$artista = strip_tags($_POST["artistas"]);
 	$grupo = strip_tags($_POST["id"]);

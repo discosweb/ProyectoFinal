@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$productor_id= $_GET['productor_id'];
 	$query= "select Nombre, Apellido, Fecha_nacimiento from productores
 					where productor_id='$productor_id';";

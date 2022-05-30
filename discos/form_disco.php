@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$query= "select * from grupos;";
 	$ejecucion = pg_query($con,$query);
 	$query2= "select * from disqueras;";

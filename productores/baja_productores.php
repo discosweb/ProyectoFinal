@@ -2,7 +2,7 @@
 //verificar la sesion:
 session_start();
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$productor_id = $_GET['productor_id'];
 	$query = "select * from productores where productor_id='$productor_id';";
 	$ejecucion = pg_query($con, $query);

@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 
 	$compositor = strip_tags($_POST["compositores"]);
 	$cancion = strip_tags($_POST["id"]);

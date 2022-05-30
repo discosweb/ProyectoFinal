@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$compositor_id= $_GET['compositor_id'];
 	$query= "select Nombre,Apellido, Pais_Nacimiento, Fecha_nacimiento from compositores
 	 where compositor_id='$compositor_id';";

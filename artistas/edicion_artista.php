@@ -4,7 +4,7 @@
 session_start();
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 
-	include 'conexion.php';
+	include '../conexion.php';
 	$id = $_POST['id'];
 	$nombre = $_POST['nombre'];
 	$apellido = $_POST['apellido'];

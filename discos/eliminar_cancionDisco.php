@@ -1,7 +1,7 @@
 <?php
 session_start();
 	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
-	include 'conexion.php';
+	include '../conexion.php';
 	$cancion= $_GET['cancion_id'];
 	$disco= $_GET['disco_id'];
 	$query = "delete from disco_cancion where cancion_id='$cancion' AND disco_id='$disco';";

@@ -4,7 +4,7 @@
 session_start();
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 
-	include 'conexion.php';
+	include '../conexion.php';
 	$artista_id = $_GET['artista_id'];
 	$query = "select * from artistas where artista_id='$artista_id';";
 	$ejecucion = pg_query($con, $query);

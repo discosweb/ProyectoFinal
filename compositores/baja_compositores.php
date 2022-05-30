@@ -1,4 +1,6 @@
 <?php
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	include 'conexion.php';
 	$compositor_id = $_GET['compositor_id'];
 	$query = "select * from compositores where compositor_id='$compositor_id';";
@@ -141,3 +143,8 @@
 	</body>
 
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

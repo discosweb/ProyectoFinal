@@ -1,4 +1,6 @@
 <?php
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	include 'conexion.php';
 	$productor_id= $_GET['productor_id'];
 	$query= "select Nombre, Apellido, Fecha_nacimiento from productores
@@ -132,3 +134,8 @@
 		</div><!-- DATA TABLE -->
 	</body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

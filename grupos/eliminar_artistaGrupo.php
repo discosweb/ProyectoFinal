@@ -1,4 +1,7 @@
 <?php
+<?php
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	include 'conexion.php';
 	$artista= $_GET['artista_id'];
 	$grupo= $_GET['grupo_id'];
@@ -9,6 +12,10 @@
 	}else{
 		echo "No se elimino";
 	}	
+
+} else {
+	header('Location: ../index.php?error=2');
+}
 
 
 ?>

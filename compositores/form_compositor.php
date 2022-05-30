@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 
 
 ?>
@@ -122,3 +123,8 @@
 		</div>
 	</body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

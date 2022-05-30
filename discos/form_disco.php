@@ -1,4 +1,6 @@
 <?php
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	include 'conexion.php';
 	$query= "select * from grupos;";
 	$ejecucion = pg_query($con,$query);
@@ -156,3 +158,8 @@
 		</div>
 	</body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

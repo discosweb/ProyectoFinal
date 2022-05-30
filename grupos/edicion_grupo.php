@@ -1,4 +1,6 @@
 <?php 
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	include 'conexion.php';
 	$id = $_POST['id'];
 	$nombre = $_POST['nombre'];
@@ -13,6 +15,10 @@
 	}else{
 		echo "Error";
 	}
+
+} else {
+	header('Location: ../index.php?error=2');
+}
 
 
 ?>

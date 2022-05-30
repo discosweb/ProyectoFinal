@@ -1,9 +1,9 @@
 <?php
 //verificar la sesion:
-/*session_start();
+session_start();
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 //Consultar los registros y mostrarlos en una tabla
- */include 'conexion.php';
+include 'conexion.php';
 $query = "Select disquera_id, nombre, pais from disqueras";
 $ejecucion = pg_query($con,$query);
 //var_dump($ejecucion);
@@ -155,3 +155,8 @@ while($row = pg_fetch_assoc($ejecucion)){
 </div><!-- DATA TABLE -->
 </body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

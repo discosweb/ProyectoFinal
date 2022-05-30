@@ -1,4 +1,6 @@
 <?php
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	include 'conexion.php';
 	$cancion_id= $_GET['cancion_id'];
 	$query= "select titulo from canciones where cancion_id='$cancion_id';";
@@ -127,3 +129,8 @@
 	</body>
 
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

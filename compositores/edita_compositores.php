@@ -1,4 +1,6 @@
 <?php
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	include 'conexion.php';
 	$compositor_id= $_GET['compositor_id'];
 	$query= "select Nombre,Apellido, Pais_Nacimiento, Fecha_nacimiento from compositores
@@ -133,3 +135,8 @@
 		</div>  <!-- DATA TABLE -->
 	</body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

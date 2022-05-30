@@ -1,4 +1,6 @@
 <?php
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	include 'conexion.php';
 	$grupo_id = $_GET['grupo_id'];
 	$consultanombre = "select nombre from grupos where grupo_id='$grupo_id'";
@@ -164,3 +166,8 @@ while($row = pg_fetch_assoc($ejecucion0)){
 	</div>
 </body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

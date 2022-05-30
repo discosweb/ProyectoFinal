@@ -1,4 +1,6 @@
 <?php
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 	include 'conexion.php';
 	$compositor= $_GET['compositor_id'];
 	$cancion= $_GET['cancion_id'];
@@ -9,6 +11,8 @@
 	}else{
 		echo "No se elimino";
 	}	
-
+} else {
+	header('Location: ../index.php?error=2');
+}
 
 ?>

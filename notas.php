@@ -59,13 +59,13 @@ discos
 
 disqueras
 
-	alta
-	baja
-	catalogo
-	edicion
-	edita
-	eliminar
-	form
+	//alta
+//	baja
+	//catalogo
+	//edicion
+	//edita
+	//eliminar
+	//form
 
 grupos
 

@@ -1,7 +1,7 @@
 <?php
 	include 'conexion.php';
-	$disquera_id = $_GET['disquera_id'];
-	$query = "select * from disqueras where disquera_id='$disquera_id';";
+	$cancion_id = $_GET['cancion_id'];
+	$query = "select * from canciones where cancion_id='$cancion_id';";
 	$ejecucion = pg_query($con, $query);
 	$resultado = pg_fetch_assoc($ejecucion);
 ?>
@@ -12,7 +12,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Disqueras</title>
+	<title>Canciones</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 	<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
@@ -63,7 +63,7 @@
 
 						 <!--DISQUERAS-->
 						 <li class="nav-item active">
-								 <a class="nav-link" href="catalogo_disqueras.php">Disqueras</a>
+								 <a class="nav-link" href="../disqueras/catalogo_disqueras.php">Disqueras</a>
 						 </li>
 
 						 <!--PRODUCTORES-->
@@ -78,7 +78,7 @@
 
 						 <!--CANCIONES-->
 						 <li class="nav-item active">
-								 <a class="nav-link" href="../canciones/catalogo_canciones.php">Canciones</a>
+								 <a class="nav-link" href="catalogo_canciones.php">Canciones</a>
 						 </li>
 
 						 <!--DISCOS-->
@@ -102,38 +102,30 @@
 	 </header><br><br><br><br><br>
 	 <!-- ========== END HEADER ========== -->
 
-	 <!-- DATA TABLE -->
-  <div class="container-fluid">
+	 <div class="container-fluid">
 
- 	 <table id="table_id" class="table table-bordered table-striped"> <!--Agregar un hover-->
- 		 <h5 align="center">¿Estás seguro de que quieres eliminar este registro?</h5><br>
- 	 <hr>
- 	 <thead>
+		 <table id="table_id" class="table table-bordered table-striped"> <!--Agregar un hover-->
+			 <h5 align="center">¿Estás seguro de que quieres eliminar este registro?</h5><br>
+		 <hr>
+		 <thead>
 	<tr>
 		<th>Id</th>
-		<th>Nombre</th>
-		<th>País</th>
+		<th>Titulo</th>
 	</tr>
-	</thead>
-	<tbody>
 	<tr>
-	<td><?php echo $resultado['disquera_id'];?></td>
-	<td><?php echo $resultado['nombre'];?></td>
-	<td><?php echo $resultado['pais'];?></td>
-	</tr>
-	</tbody>
-	</table>
-
-	<div align="center">
-
-	<form name="delete" action="eliminar_disqueras.php" method="post">
-		<input type="hidden" name="id" value="<?php echo $disquera_id;?>">
-		<input type="submit" value="Eliminar" class="btn btn-success btn-sm">
-		<a href="catalogo_disqueras.php"><input type="button" value="Cancelar" class="btn btn-danger btn-sm"></a>
+		</thead>
+		<tbody>
+			<tr>
+	<td><?php echo $resultado['cancion_id'];?></td>
+	<td><?php echo $resultado['titulo'];?></td>
+</tr>
+</tbody>
+</table>
+	<form name="delete" action="eliminar_canciones.php" method="post">
+		<input type="hidden" name="id" value="<?php echo $cancion_id;?>">
+		<input type="submit" value="Eliminar">
+		<a href="catalogo_canciones.php"><input type="button" value="Cancelar"></a>
 	</form>
-	<div>
-		</div>
 	</body>
-
 
 </html>

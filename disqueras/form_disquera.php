@@ -107,10 +107,10 @@
 			<div class="form-group">
 
 			<label for="nombre">Nombre:</label>
-			<input class="form-control" type="text" name="nombre">
+			<input class="form-control" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" type="text" name="nombre">
 
 			<label for="pais">Pais:</label>
-			<input class="form-control" type="text" name="pais">
+			<input class="form-control" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" type="text" name="pais">
 			</div>
 			<input class="btn btn-success" type="submit" value="Enviar">
 		</form>

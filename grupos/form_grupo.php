@@ -107,10 +107,10 @@ session_start();
 
 				<div class="form-group">
 			<label for="nombre">Nombre:</label>
-			<input class="form-control" type="text" name="nombre">
+			<input class="form-control" type="text" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" name="nombre">
 
 			<label for="pais">Pais de origen:</label>
-			<input class="form-control" type="text" name="pais">
+			<input class="form-control" type="text" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" name="pais">
 			</div>
 			<input type="submit" value="Enviar" class="btn btn-success">
 		</form>

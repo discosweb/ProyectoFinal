@@ -121,7 +121,7 @@ session_start();
 					<div class="form-group">
 
 					<label for="titulo">Titulo:</label>
-					<input type="text" name="titulo" value="<?php echo $resultado['titulo']; ?>" class="form-control">
+					<input type="text" name="titulo" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" value="<?php echo $resultado['titulo']; ?>" class="form-control">
 
 					<label for="grupo" >Grupo:</label>
 					<select name="grupo" class="form-control">
@@ -137,10 +137,10 @@ session_start();
 					</select>
 
 					<label for="anio">Año:</label>
-					<input type="date" name="anio" value="<?php echo $resultado['año'];?>" class="form-control">
+					<input type="date" name="anio" value="<?php echo $resultado['año'];?>" required class="form-control">
 
 					<label for="genero">Genero:</label>
-					<input type="text" name="genero" value="<?php echo $resultado['genero'];?>" class="form-control">
+					<input type="text" name="genero" value="<?php echo $resultado['genero'];?>"  required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" class="form-control">
 
 					<label for="disqueras">Disquera:</label>
 					<select name="disqueras" class="form-control">
@@ -169,7 +169,7 @@ session_start();
 					</select>
 
 					<label for="costo">Costo:</label>
-					<input type="number" name="costo" step="0.01" value="<?php echo $resultado['costo'];?>" class="form-control">
+					<input type="number" name="costo" step="0.01" value="<?php echo $resultado['costo'];?>" required class="form-control">
 
 					<input type="hidden" name="id" value="<?php echo $disco_id; ?>">
 

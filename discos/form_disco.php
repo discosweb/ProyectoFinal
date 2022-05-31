@@ -115,7 +115,7 @@ session_start();
 			<div class="form-group">
 
 			<label for="titulo">Titulo:</label>
-			<input type="text" name="titulo" class="form-control">
+			<input type="text" name="titulo" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" class="form-control">
 
 			<label for="grupo">Grupo:</label>
 			<select name="grupo" class="form-control">
@@ -127,10 +127,10 @@ session_start();
 			</select>
 
 			<label for="anio">Año:</label>
-			<input type="date" name="anio" class="form-control">
+			<input type="date" name="anio" required class="form-control">
 
 			<label for="genero">Género:</label>
-			<input type="text" name="genero" class="form-control">
+			<input type="text" name="genero" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" class="form-control">
 
 			<label for="disqueras">Disquera:</label>
 			<select name="disqueras" class="form-control">
@@ -151,7 +151,7 @@ session_start();
 			</select>
 
 			<label for="costo">Costo:</label>
-			<input type="number" name="costo" step="0.01" class="form-control">
+			<input type="number" name="costo" required step="0.01" class="form-control">
 			</div>
 			<input type="submit" value="Enviar" class="btn btn-success">
 		</form>

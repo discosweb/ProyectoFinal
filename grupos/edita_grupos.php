@@ -114,10 +114,10 @@ session_start();
 			<div class="form-group">
 
 			<label for="nombre">Nombre:</label>
-			<input class="form-control" type="text" name="nombre" value="<?php echo $resultado['nombre']; ?>">
+			<input class="form-control" type="text" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" name="nombre" value="<?php echo $resultado['nombre']; ?>">
 
 			<label for="pais">Pais:</label>
-			<input class="form-control" type="text" name="pais" value="<?php echo $resultado['pais_origen']; ?>">
+			<input class="form-control" type="text" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" name="pais" value="<?php echo $resultado['pais_origen']; ?>">
 
 			<input type="hidden" name="id" value="<?php echo $grupo_id; ?>">
 			</div>

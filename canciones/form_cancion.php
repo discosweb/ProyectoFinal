@@ -106,7 +106,7 @@ session_start();
 			<div class="form-group">
 
 			<label for="titulo">Titulo:</label>
-			<input class="form-control" type="text" name="titulo">
+			<input class="form-control" type="text" required name="titulo">
 			</div>
 			<input class="btn btn-success" type="submit" value="Enviar">
 		</form>

@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$cancion_id= $_GET['cancion_id'];
 	$query= "select titulo from canciones where cancion_id='$cancion_id';";
 	$ejecucion = pg_query($con, $query);
@@ -117,9 +119,9 @@
 			<input class="btn btn-success" type="submit" value="Enviar">
 		</form>
 <?php
-		echo "<a class="btn btn-success btn-sm" href='compositorCancion.php?cancion_id=".$cancion_id."'>Editar compositores</a>";
+		echo "<a class='btn btn-success btn-sm' href='compositorCancion.php?cancion_id=".$cancion_id."'>Editar compositores</a>";
 			echo "</br>";
-		echo "<a class="btn btn-secondary btn-sm" href='catalogo_canciones.php'>Volver a catalogo</a>";
+		echo "<a class='btn btn-secondary btn-sm' href='catalogo_canciones.php'>Volver a catalogo</a>";
 	?>
 
 </table>
@@ -127,3 +129,8 @@
 	</body>
 
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

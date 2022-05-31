@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$grupo_id = $_GET['grupo_id'];
 	$query = "select * from grupos where grupo_id='$grupo_id';";
 	$ejecucion = pg_query($con, $query);
@@ -137,3 +139,8 @@
 </body>
 
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

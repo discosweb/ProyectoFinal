@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$grupo_id= $_GET['grupo_id'];
 	$query= "select nombre, pais_origen from grupos where grupo_id='$grupo_id';";
 	$ejecucion = pg_query($con, $query);
@@ -123,9 +125,9 @@
 		</form>
 		</br></br>
 <?php
-		echo "<a class="btn btn-success btn-sm" href='artistasGrupo.php?grupo_id=".$grupo_id."'>Editar integrantes</a>";
+		echo "<a class='btn btn-success btn-sm' href='artistasGrupo.php?grupo_id=".$grupo_id."'>Editar integrantes</a>";
 		echo "</br>";
-		echo "<a class="btn btn-secondary btn-sm" href='catalogo_grupos.php'>Volver a catalogo</a>";
+		echo "<a class='btn btn-secondary btn-sm' href='catalogo_grupos.php'>Volver a catalogo</a>";
 	?>
 
 </table>
@@ -133,3 +135,8 @@
 </body>
 
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+include '../conexion.php';
 
 	$artista = strip_tags($_POST["artistas"]);
 	$grupo = strip_tags($_POST["id"]);
@@ -14,5 +16,9 @@
 	}
 	
 	pg_close($con);
+
+} else {
+	header('Location: ../index.php?error=2');
+}
 
 ?>

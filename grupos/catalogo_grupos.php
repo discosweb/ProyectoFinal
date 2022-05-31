@@ -1,9 +1,9 @@
 <?php
 //verificar la sesion:
-/*session_start();
+session_start();
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 //Consultar los registros y mostrarlos en una tabla
- */include 'conexion.php';
+include '../conexion.php';
 $query = "Select grupo_id, nombre, pais_origen from grupos";
 $ejecucion = pg_query($con,$query);
 //var_dump($ejecucion);
@@ -140,19 +140,22 @@ while($row = pg_fetch_assoc($ejecucion)){
 	<td><?php echo $row['grupo_id']; ?></td>
 	<td><?php echo $row['nombre']; ?></td>
 	<td><?php echo $row['pais_origen']; ?></td>
-	<td><a class="btn btn-success btn-sm" href="edita_grupos.php?grupo_id= <?php echo $row['grupo_id']; ?>">Editar</a></td>
-	<td><a class="btn btn-danger btn-sm"href="baja_grupos.php?grupo_id= <? php echo $row['grupo_id']; ?>">Borrar</a></td>
+	<td><a class="btn btn-success btn-sm" href="edita_grupos.php?grupo_id=<?php echo $row['grupo_id']; ?>">Editar</a></td>
+	<td><a class="btn btn-danger btn-sm"href="baja_grupos.php?grupo_id=<?php echo $row['grupo_id']; ?>">Borrar</a></td>
 	</tr>
   <?php
       }
   ?>
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
+
 
 </tbody>
 </table>
 </div><!-- DATA TABLE -->
 </body>
 </html>
+<?php
+}
+else {
+	header('Location: ../index.php?error=2');
+}
+?>

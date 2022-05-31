@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$disco_id = $_GET['disco_id'];
 	$query = "select * from discos where disco_id='$disco_id';";
 	$ejecucion = pg_query($con, $query);
@@ -141,3 +143,8 @@
 	</body>
 
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

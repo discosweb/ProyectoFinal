@@ -1,5 +1,7 @@
 <?php 
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$id = $_POST['id'];
 	$titulo = strip_tags($_POST["titulo"]);
 	$grupo = strip_tags($_POST["grupo"]);
@@ -18,6 +20,8 @@
 	}else{
 		echo "Error";
 	}
-
+} else {
+	header('Location: ../index.php?error=2');
+}
 
 ?>

@@ -1,0 +1,26 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: 0;
+}
+
+.contenedor {
+	background: #D0D3DD;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contenedor > div {
+	text-align:center;
+}
+
+
+.e403 {
+	color: #818540;
+}
+
+.e404 {
+	color: #F63207;
+}

@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$cancion_id = $_GET['cancion_id'];
 	$consultanombre = "select titulo from canciones where cancion_id='$cancion_id'";
 	$query0= "select compositor_id, nombre, apellido from compositores where compositor_id IN (select compositor_id from cancion_compositor where cancion_id = '$cancion_id');";
@@ -8,7 +10,6 @@
 	$ejecucion = pg_query($con,$query1);
 	$ejecucion0 = pg_query($con,$query0);
 	$dato = pg_fetch_array($ejecutanombre);
-	echo "<h2>$dato[0]<h2>";
 ?>
 <!DOCTYPE html>
 <html>
@@ -109,7 +110,8 @@
 	 <!-- DATA TABLE -->
  	<div class="container-fluid">
 		<table id="table_id" class="table table-bordered table-striped"> <!--Agregar un hover-->
-			<h2 align="center">Agrega compositores a la canción</h2><br>
+			<h2><?php echo "$dato[0]";?><h2>
+			<h3 align="center">Agrega compositores a la canción</h3><br>
 	<thead>
 	<tr>
 		<th>Id</th>
@@ -137,15 +139,11 @@ while($row = pg_fetch_assoc($ejecucion0)){
 	<td><?php echo $row['nombre']; ?></td>
 	<td><?php echo $row['apellido']; ?></td>
 
-	<?php echo "<td><a href='eliminar_compositorCancion.php?compositor_id=".$row['compositor_id']."&cancion_id=".$cancion_id."' class="btn btn-danger btn-sm">Borrar</a></td>"; ?>
+	<?php echo "<td><a href='eliminar_compositorCancion.php?compositor_id=".$row['compositor_id']."&cancion_id=".$cancion_id."' class='btn btn-danger btn-sm'>Borrar</a></td>"; ?>
 	</tr>
 	<?php
 				}
 	?>
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
 
 </tbody>
 
@@ -170,3 +168,8 @@ else {
 </div>
 	</body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

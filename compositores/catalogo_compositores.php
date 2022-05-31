@@ -1,9 +1,9 @@
 <?php
 //verificar la sesion:
-/*session_start();
+session_start();
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 //Consultar los registros y mostrarlos en una tabla
- */include 'conexion.php';
+include '../conexion.php';
 $query = "Select compositor_id, nombre, apellido, pais_nacimiento, fecha_nacimiento
  					from compositores";
 $ejecucion = pg_query($con,$query);
@@ -133,7 +133,7 @@ $ejecucion = pg_query($con,$query);
       ?>
 
       <tbody>
-        <? php
+<?php
       while($row = pg_fetch_assoc($ejecucion)){
         ?>
 
@@ -143,17 +143,18 @@ $ejecucion = pg_query($con,$query);
       	<td><?php echo $row['pais_nacimiento']; ?></td>
       	<td><?php echo $row['fecha_nacimiento']; ?></td>
       	<td><a class="btn btn-success btn-sm" href="edita_compositores.php?compositor_id= <?php echo $row['compositor_id'];?>">Editar</a></td>
-      	<td><a class="btn btn-danger btn-sm" href="baja_compositores.php?compositor_id= <? php echo $row['compositor_id'];?>">Borrar</a></td>
+      	<td><a class="btn btn-danger btn-sm" href="baja_compositores.php?compositor_id= <?php echo $row['compositor_id'];?>">Borrar</a></td>
         </tr>
         <?php
             }
         ?>
-      /*}
-      else {
-      	header('Location: ../index.php?error=2');
-      }*/
       </tbody>
       </table>
       </div>
 </body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

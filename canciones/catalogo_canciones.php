@@ -1,9 +1,9 @@
 <?php
 //verificar la sesion:
-/*session_start();
+session_start();
 if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 //Consultar los registros y mostrarlos en una tabla
- */include 'conexion.php';
+include '../conexion.php';
 $query = "Select cancion_id, titulo from canciones";
 $ejecucion = pg_query($con,$query);
 //var_dump($ejecucion);
@@ -129,7 +129,7 @@ $ejecucion = pg_query($con,$query);
 	echo "<td>".$row[3]."</td>";
 	echo "</tr>";
 }*/
-<?php
+
 while($row = pg_fetch_assoc($ejecucion)){
 
   ?>
@@ -144,13 +144,14 @@ while($row = pg_fetch_assoc($ejecucion)){
   <?php
       }
   ?>
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
 
 </tbody>
 </table>
 </div><!-- DATA TABLE -->
 </body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

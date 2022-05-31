@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$grupo_id = $_GET['grupo_id'];
 	$consultanombre = "select nombre from grupos where grupo_id='$grupo_id'";
 	$query0= "select artista_id, nombre, apellido from artistas where artista_id IN (select artista_id from grupo_artista where grupo_id = '$grupo_id');";
@@ -8,7 +10,6 @@
 	$ejecucion = pg_query($con,$query1);
 	$ejecucion0 = pg_query($con,$query0);
 	$dato = pg_fetch_array($ejecutanombre);
-	echo "<h2>$dato[0]<h2>";
 ?>
 <html>
 <head>
@@ -108,7 +109,8 @@
 	 <!-- DATA TABLE -->
 	<div class="container-fluid">
 		<table id="table_id" class="table table-bordered table-striped"> <!--Agregar un hover-->
-			<h2 align="center">Agregar artistas al grupo</h2><br>
+		<h2><?php echo "$dato[0]";?><h2>
+			<h3 align="center">Agregar artistas al grupo</h3><br>
 	<thead>
 	<tr>
 		<th>Id</th>
@@ -132,16 +134,15 @@ while($row = pg_fetch_assoc($ejecucion0)){
 
 	?>
 	<tr>
-	<td><? php echo $row['artista_id']; ?></td>
-	<td><? php echo $row['nombre']; ?></td>
-	<td><? php echo $row['apellido']; ?></td>
-	<?php echo "<td><a class="btn btn-danger btn-sm" href='eliminar_artistaGrupo.php?artista_id=".$row['artista_id']."&grupo_id=".$grupo_id."'>Borrar</a></td>"; ?>
+	<td><?php echo $row['artista_id']; ?></td>
+	<td><?php echo $row['nombre']; ?></td>
+	<td><?php echo $row['apellido']; ?></td>
+	<?php echo "<td><a class='btn btn-danger btn-sm' href='eliminar_artistaGrupo.php?artista_id=".$row['artista_id']."&grupo_id=".$grupo_id."'>Borrar</a></td>"; ?>
 	</tr>
+<?php
 }
-/*}
-else {
-	header('Location: ../index.php?error=2');
-}*/
+?>
+
 </tbody>
 </table>
 </div>
@@ -165,3 +166,8 @@ else {
 	</div>
 </body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

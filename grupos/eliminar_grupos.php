@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$id= $_POST['id'];
 	$query = "delete from grupo_artista where grupo_id='$id';";
 	$query2 = "delete from grupos where grupo_id='$id';";
@@ -12,6 +14,8 @@
 	}else{
 		echo "No se elimino";
 	}	
-
+} else {
+	header('Location: ../index.php?error=2');
+}
 
 ?>

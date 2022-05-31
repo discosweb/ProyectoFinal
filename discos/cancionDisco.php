@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$disco_id = $_GET['disco_id'];
 	$consultanombre = "select titulo from discos where disco_id='$disco_id'";
 	$query0= "select cancion_id, titulo from canciones where cancion_id IN (select cancion_id from disco_cancion where disco_id = '$disco_id');";
@@ -8,7 +10,6 @@
 	$ejecucion = pg_query($con,$query1);
 	$ejecucion0 = pg_query($con,$query0);
 	$dato = pg_fetch_array($ejecutanombre);
-	echo "<h2>$dato[0]<h2>";
 ?>
 <html>
 <head>
@@ -108,7 +109,9 @@
 	 <!-- DATA TABLE -->
  	<div class="container-fluid">
 		<table id="table_id" class="table table-bordered table-striped"> <!--Agregar un hover-->
-			<h2 align="center">Agrega canciones al disco</h2><br>
+
+		<h2><?php echo "$dato[0]";?><h2>
+			<h3 align="center">Agrega canciones al disco</h3><br>
 	<thead>
 	<tr>
 		<th>Id</th>
@@ -136,17 +139,14 @@
 			<td><?php echo $row['cancion_id']; ?></td>
 			<td><?php echo $row['titulo']; ?></td>
 
-		<?php	echo "<td><a href='eliminar_cancionDisco.php?cancion_id=".$row['cancion_id']."&disco_id=".$disco_id."' class="btn btn-danger btn-sm">Borrar</a></td>"; ?>
+		<?php	echo "<td><a href='eliminar_cancionDisco.php?cancion_id=".$row['cancion_id']."&disco_id=".$disco_id."' class='btn btn-danger btn-sm'>Borrar</a></td>"; ?>
 			</tr>
 
 		<?php
 					}
 		?>
 
-		/*}
-		else {
-			header('Location: ../index.php?error=2');
-		}*/
+	
 
 	</tbody>
 </table>
@@ -174,3 +174,8 @@
 
 </body>
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

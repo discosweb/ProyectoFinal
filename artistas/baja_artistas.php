@@ -1,5 +1,10 @@
 <?php
-	include 'conexion.php';
+
+//Verificar si existe una sesion:
+session_start();
+if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+
+	include '../conexion.php';
 	$artista_id = $_GET['artista_id'];
 	$query = "select * from artistas where artista_id='$artista_id';";
 	$ejecucion = pg_query($con, $query);
@@ -111,7 +116,10 @@
 	<tr>
 		<th>Id</th>
 		<th>Nombre</th>
+		<th>Apellido</th>
 		<th>País</th>
+		<th>Fecha nacimiento</th>
+		<th>Nombre artistico</th>
 	</tr>
 	</thead>
 
@@ -137,3 +145,10 @@
 	</body>
 
 </html>
+
+<?php
+}
+else{
+	header('Location: ../index.php?error=2');
+}
+?>

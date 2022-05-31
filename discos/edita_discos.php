@@ -1,5 +1,7 @@
 <?php
-	include 'conexion.php';
+session_start();
+	if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+	include '../conexion.php';
 	$disco_id= $_GET['disco_id'];
 	$query= "select * from discos where disco_id='$disco_id';";
 	$ejecucion = pg_query($con, $query);
@@ -177,9 +179,9 @@
 				</br></br>
 
 				<?php
-					echo "<a class="btn btn-success btn-sm" href='cancionDisco.php?disco_id=".$disco_id."'>Editar canciones</a>";
+					echo "<a class='btn btn-success btn-sm' href='cancionDisco.php?disco_id=".$disco_id."'>Editar canciones</a>";
 						echo "</br>";
-					echo "<a class="btn btn-secondary btn-sm" href='catalogo_discos.php'>Volver a catalogo</a>";
+					echo "<a class='btn btn-secondary btn-sm' href='catalogo_discos.php'>Volver a catalogo</a>";
 				?>
 
 			</table>
@@ -187,3 +189,8 @@
 	</body>
 
 </html>
+<?php
+} else {
+	header('Location: ../index.php?error=2');
+}
+?>

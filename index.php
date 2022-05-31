@@ -73,5 +73,6 @@
 
         </div>
     </div>
+    <script src="js/formulario.js"></script>
 </body>
 </html>

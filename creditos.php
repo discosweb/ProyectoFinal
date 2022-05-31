@@ -20,51 +20,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Créditos</title>
     <!-- Custom styles for this template -->
-    <link href="css/login.css" rel="stylesheet">
-
-    <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
-    }
-    </style>
+    <link href="css/creditos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
   <body>
     <!-- ========== HEADER ========== -->
-    <header>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav.navbar ">
-           <!--MENÚ-->
-           <div class="collapse navbar-collapse" id="navbarCollapse">
-             <ul class="navbar-nav mr-auto">
-               <li class="nav-item active">
-                   <a class="nav-link" href="catalogo.php">Catálogo</a>
-               </li>
-             <ul>
-           </div>
-           <!--FIN MENÚ-->
-       </nav>
-     </header><br><br><br><br><br>
+    <div class="contenedor">
+	<header>
+		<?php 
+		session_start();
+		if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
+			echo "<a href='discos/catalogo_discos.php'>Regresa al sitio</a>";
+		} else {
+			echo "<a href='index.php'>Inicia sesión</a>";
+		}
+		?>
+   		<h2>Créditos</h2>
+     	</header>
      <!-- ========== END HEADER ========== -->
 
-    <div class="">
-      <p>Janeth Cano Jiménez</p>
-      <p><strong><em>Estudiante Facultad de Contaduría y Administración</em></strong></p>
-      <p>Mario Parra Huerta</p>
-      <p><strong><em>Estudiante Facultad de Contaduría y Administración</em></strong></p>
-      <p>Luis Omar Saldate Luna</p>
-      <p><strong><em>Estudiante Facultad de Contaduría y Administración</em></strong></p>
-      <p>Ariana Jatziri Ortega Hernández</p>
-      <p><strong><em>Estudiante Facultad de Contaduría y Administración</em></strong></p>
-    </div>
+	    <div class="container">
+		<div class="row">
+		  <div class="col-sm-6">
+		    <div class="card border-primary">
+ 	     		<div class="card-body text-primary">
+ 			       <h5 class="card-title">Janeth Cano</h5>
+ 			       <p class="card-text">Estudiante de Informática</p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card border-primary">
+		      <div class="card-body text-primary">
+		        <h5 class="card-title">Mario Parra</h5>
+       			 <p class="card-text">Estudiante de Informática</p>
+			    </div>
+		    </div>
+  		</div>
+	</div>
+
+		<div class="row">
+		  <div class="col-sm-6">
+		    <div class="card border-primary">
+ 	     		<div class="card-body text-primary">
+ 			       <h5 class="card-title">Omar Saldate</h5>
+ 			       <p class="card-text">Estudiante de Informática</p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card border-primary">
+		      <div class="card-body text-primary">
+		        <h5 class="card-title">Ariana Ortega</h5>
+       			 <p class="card-text">Estudiante de Informática</p>
+			    </div>
+		    </div>
+  		</div>
+	</div>
+
+	   </div>
+	</div>
   </body>
 </html>
+

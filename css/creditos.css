@@ -1,0 +1,22 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(141,170,247,0.2);
+
+}
+
+.contenedor {
+	width: 70%;
+	background: white;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+.card {
+	margin: 20px;
+}

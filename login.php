@@ -34,5 +34,5 @@
 		header('Location: index.php?error=1');
 		//echo "No coinciden";
 	}
-    <script src="js/formulario.js"></script>
+    <script src="js/app.js"></script>
 ?>

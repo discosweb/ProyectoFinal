@@ -34,5 +34,8 @@
 		header('Location: index.php?error=1');
 		//echo "No coinciden";
 	}
-    
+<<<<<<< HEAD
+    <script src="js/app.js"></script>
+=======
+>>>>>>> d187db5c864eafdf0d21b73eb3183e1d4a141f35
 ?>

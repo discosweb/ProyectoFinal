@@ -126,7 +126,7 @@ if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 			<input class="form-control" type="text" name="pais_nacimiento" required pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" value="<?php echo $resultado['pais_nacimiento']; ?>">
 
 			<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-			<input class="form-control" type="date" name="fecha_nacimiento" value="<?php echo $resultado['fecha_nacimiento']; ?>">
+			<input class="form-control" type="date" required name="fecha_nacimiento" value="<?php echo $resultado['fecha_nacimiento']; ?>">
 
 			<label for="nombre_artistico">Nombre Artístico:</label>
 			<input class="form-control" type="text" name="nombre_artistico" pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" value="<?php echo $resultado['nombre_artistico']; ?>">

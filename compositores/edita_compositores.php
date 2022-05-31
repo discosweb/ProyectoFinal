@@ -116,16 +116,16 @@ session_start();
 			<div class="form-group">
 
 			<label for="nombre">Nombre:</label>
-			<input class="form-control" type="text" name="nombre" value="<?php echo $resultado['nombre']; ?>">
+			<input required pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" class="form-control" type="text" name="nombre" value="<?php echo $resultado['nombre']; ?>">
 
 			<label for="apellido">Apellido:</label>
-			<input class="form-control" type="text" name="apellido" value="<?php echo $resultado['apellido']; ?>">
+			<input required pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" class="form-control" type="text" name="apellido" value="<?php echo $resultado['apellido']; ?>">
 
 			<label for="pais_nacimiento">País de Nacimiento:</label>
-			<input class="form-control" type="text" name="pais_nacimiento" value="<?php echo $resultado['pais_nacimiento']; ?>">
+			<input required pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" class="form-control" type="text" name="pais_nacimiento" value="<?php echo $resultado['pais_nacimiento']; ?>">
 
 			<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-			<input class="form-control" type="date" name="fecha_nacimiento" value="<?php echo $resultado['fecha_nacimiento']; ?>">
+			<input class="form-control" type="date" required name="fecha_nacimiento" value="<?php echo $resultado['fecha_nacimiento']; ?>">
 
 			<input type="hidden" name="id" value="<?php echo $compositor_id; ?>">
 			</div>

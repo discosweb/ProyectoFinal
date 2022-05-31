@@ -53,8 +53,8 @@
 
             <!-- Login Form -->
             <form method="post" action="login.php">     <!--envía los datos a login.php-->
-                <i class="fas fa-user"></i> <input type="text" id="usuario" required="" class="fadeIn second" name="usuario" placeholder="usuario"><br>
-                <i class="fas fa-key"></i> <input type="password" id="contraseña" required="" class="fadeIn third" name="contraseña" placeholder="contraseña"><br>
+                <i class="fas fa-user"></i> <input type="text" id="usuario" required class="fadeIn second" name="usuario" pattern="[A-Za-záéíóúñ0-9_-]{2,50}" placeholder="usuario"><br>
+                <i class="fas fa-key"></i> <input type="password" id="contraseña" required pattern="[A-Za-z0-9áéíóúñ_-]{2,50}"class="fadeIn third" name="contraseña" placeholder="contraseña"><br>
                 <input class="fadeIn fourth" type="submit" name="acceder" value="acceder"><br>
             </form>
 

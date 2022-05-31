@@ -110,24 +110,24 @@ if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 			<div class="form-group">
 
 			<label for="nombre">Nombre:</label>
-			<input type="text" name="nombre" class="form-control">
+			<input type="text" required pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" name="nombre" class="form-control">
 
 			<label for="apellido">Apellido:</label>
-			<input class="form-control" type="text" name="apellido">
+			<input class="form-control" type="text" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" name="apellido">
 
 			<label for="pais_nacimiento">Pais de Nacimiento:</label>
-			<input class="form-control" type="text" name="pais_nacimiento">
+			<input class="form-control" type="text" required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" name="pais_nacimiento">
 
 			<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-			<input class="form-control" type="date" name="fecha_nacimiento">
+			<input class="form-control" type="date" required name="fecha_nacimiento">
 
 			<label for="nombre_artistico">Nombre Artístico:</label>
-			<input class="form-control" type="text" name="nombre_artistico">
+			<input class="form-control" type="text" pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" name="nombre_artistico">
 			</div>
 			<input class="btn btn-success" type="submit" value="Enviar">
 		</form>
 		</div>
-			    <script src="js/app.js"></script>
+			   
 	</body>
 </html>
 <?php

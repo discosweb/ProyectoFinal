@@ -10,7 +10,6 @@ session_start();
 	$ejecucion = pg_query($con,$query1);
 	$ejecucion0 = pg_query($con,$query0);
 	$dato = pg_fetch_array($ejecutanombre);
-	echo "<h2>$dato[0]<h2>";
 ?>
 <html>
 <head>
@@ -110,7 +109,9 @@ session_start();
 	 <!-- DATA TABLE -->
  	<div class="container-fluid">
 		<table id="table_id" class="table table-bordered table-striped"> <!--Agregar un hover-->
-			<h2 align="center">Agrega canciones al disco</h2><br>
+
+		<h2><?php echo "$dato[0]";?><h2>
+			<h3 align="center">Agrega canciones al disco</h3><br>
 	<thead>
 	<tr>
 		<th>Id</th>

@@ -117,19 +117,19 @@ if(isset($_SESSION['valida']) && $_SESSION['valida'] == true){
 			<form name="update" method="post" action="edicion_artista.php">
 				<div class="form-group">
 			<label for="nombre">Nombre:</label>
-			<input class="form-control" type="text" name="nombre" value="<?php echo $resultado['nombre']; ?>">
+			<input class="form-control" type="text" required pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" name="nombre" value="<?php echo $resultado['nombre']; ?>">
 
 			<label for="apellido">Apellido:</label>
-			<input class="form-control" type="text" name="apellido" value="<?php echo $resultado['apellido']; ?>">
+			<input class="form-control" required pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" type="text" name="apellido" value="<?php echo $resultado['apellido']; ?>">
 
 			<label for="pais_nacimiento">Pais de Nacimiento:</label>
-			<input class="form-control" type="text" name="pais_nacimiento" value="<?php echo $resultado['pais_nacimiento']; ?>">
+			<input class="form-control" type="text" name="pais_nacimiento" required pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" value="<?php echo $resultado['pais_nacimiento']; ?>">
 
 			<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
 			<input class="form-control" type="date" name="fecha_nacimiento" value="<?php echo $resultado['fecha_nacimiento']; ?>">
 
 			<label for="nombre_artistico">Nombre Artístico:</label>
-			<input class="form-control" type="text" name="nombre_artistico" value="<?php echo $resultado['nombre_artistico']; ?>">
+			<input class="form-control" type="text" name="nombre_artistico" pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" value="<?php echo $resultado['nombre_artistico']; ?>">
 
 			<input type="hidden" name="id" value="<?php echo $artista_id; ?>">
 			</div>

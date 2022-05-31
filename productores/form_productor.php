@@ -110,13 +110,13 @@ session_start();
 
 
 			<label for="nombre">Nombre:</label>
-			<input class="form-control" type="text" name="nombre">
+			<input required pattern="^[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" class="form-control" type="text" name="nombre">
 
 			<label for="apellido">Apellido:</label>
-			<input class="form-control" type="text" name="apellido">
+			<input required pattern="[a-zA-Zá-úÁ-ÚÑñ ]{2,50}$" class="form-control" type="text" name="apellido">
 
 			<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-			<input class="form-control" type="date" name="fecha_nacimiento">
+			<input class="form-control" type="date" required name="fecha_nacimiento">
 			</div>
 
 			<input class="btn btn-success" type="submit" value="Enviar">
